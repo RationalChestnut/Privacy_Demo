@@ -28,6 +28,12 @@
           <string>com.anonymous.frontend</string>
         </array>
       </dict>
+      <dict>
+        <key>CFBundleURLSchemes</key>
+        <array>
+          <string>com.googleusercontent.apps.123701425282-j728t2edh3fm3fd58b1emkkebpoemldf</string>
+        </array>
+      </dict>
     </array>
     <key>CFBundleVersion</key>
     <string>1</string>

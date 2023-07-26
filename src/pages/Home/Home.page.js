@@ -1,18 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {
   DataList,
   HomeContainer,
   CardContainer,
   ItemText,
+  UpperNavbar,
+  LogoutIcon,
+  Title,
 } from "./Home.styles";
 import axios from "axios";
 import { View, ActivityIndicator } from "react-native";
-
+import { AuthenticationContext } from "../../infra/auth/Authentication.context";
 export const Home = () => {
   const [dataToRender, setDataToRender] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [maxPage, setMaxPage] = useState(10);
+  const { onLogout } = useContext(AuthenticationContext);
 
   const getData = async () => {
     try {
@@ -83,7 +87,6 @@ export const Home = () => {
     if (!item) {
       return <ItemText>0</ItemText>;
     }
-    console.log(item.created);
     return (
       <CardContainer>
         <ItemText>Created: {convertDateToReadable(item.created)}</ItemText>
@@ -101,6 +104,10 @@ export const Home = () => {
 
   return (
     <HomeContainer>
+      <UpperNavbar>
+        <Title>Privacy Demo</Title>
+        <LogoutIcon onPress={onLogout} />
+      </UpperNavbar>
       <DataList
         data={dataToRender}
         extraData={dataToRender}
