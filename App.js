@@ -1,13 +1,18 @@
 import { StatusBar } from "expo-status-bar";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import { SafeAreaProvider } from "react-native-safe-area-context";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { Navigation } from "./src/infra/navigation";
 
 export default function App() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <SafeAreaProvider style={{ flex: 1 }} edges={["top", "left", "right"]}>
-        <Navigation />
+      <SafeAreaProvider>
+        <SafeAreaView
+          style={{ flex: 1, backgroundColor: "#f7f6f7" }}
+          edges={["top", "left", "right"]}
+        >
+          <Navigation />
+        </SafeAreaView>
       </SafeAreaProvider>
     </GestureHandlerRootView>
   );

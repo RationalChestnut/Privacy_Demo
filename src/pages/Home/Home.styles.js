@@ -16,6 +16,15 @@ export const DataList = styled(FlatList)`
   flex: 1;
 `;
 
-export const ItemContainer = styled(View)``;
+export const CardContainer = styled(View)`
+  margin: ${hp("2%")}px 0;
+  width: 100%;
+  background-color: #4287f5;
+  padding: ${hp("2%")}px ${wp("4%")}px;
+  border-radius: ${wp("4%")}px;
+`;
 
-export const ItemText = styled(Text)``;
+export const ItemText = styled(Text)`
+  color: white;
+  font-size: ${RFPercentage(2)}px;
+`;

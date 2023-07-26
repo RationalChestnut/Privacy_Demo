@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import {
   DataList,
   HomeContainer,
-  ItemContainer,
+  CardContainer,
   ItemText,
 } from "./Home.styles";
 import axios from "axios";
@@ -58,6 +58,23 @@ export const Home = () => {
     );
   };
 
+  const convertDateToReadable = (dateStr) => {
+    // Parse the date string into a Date object
+    const dateObj = new Date(dateStr);
+
+    // Format the Date object into a readable date string
+    const options = {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      timeZoneName: "short",
+    };
+
+    return dateObj.toLocaleString("en-US", options);
+  };
+
   useEffect(() => {
     getData();
   }, []);
@@ -66,12 +83,19 @@ export const Home = () => {
     if (!item) {
       return <ItemText>0</ItemText>;
     }
+    console.log(item.created);
     return (
-      <ItemContainer>
-        <ItemText>Created; {item.created}</ItemText>
+      <CardContainer>
+        <ItemText>Created: {convertDateToReadable(item.created)}</ItemText>
         <ItemText>Status: {item.status}</ItemText>
         <ItemText>Amount: ${item.amount / 100}</ItemText>
-      </ItemContainer>
+        <ItemText>Acceptor ID: {item.merchant.acceptor_id}</ItemText>
+        <ItemText>Country: {item.merchant.country}</ItemText>
+        <ItemText>City: {item.merchant.city}</ItemText>
+        <ItemText>Descriptor: {item.merchant.descriptor}</ItemText>
+        <ItemText>MCC: {item.merchant.mcc}</ItemText>
+        <ItemText>State: {item.merchant.state}</ItemText>
+      </CardContainer>
     );
   };
 
