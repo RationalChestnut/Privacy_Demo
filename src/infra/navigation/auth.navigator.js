@@ -30,8 +30,8 @@ const createScreenOptions = ({ route }) => {
 
 export const AuthenticatedNavigator = () => {
   return (
-    <Stack.Navigator screenOptions={createScreenOptions}>
-      <Stack.Screen name="Generate" component={Home} />
+    <Stack.Navigator screenOptions={createScreenOptions} testID="authenticated">
+      <Stack.Screen name="Home" component={Home} />
     </Stack.Navigator>
   );
 };

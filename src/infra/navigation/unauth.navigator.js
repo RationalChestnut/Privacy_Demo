@@ -5,7 +5,10 @@ const Stack = createNativeStackNavigator();
 
 export const UnAuthNavigator = () => {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
+    <Stack.Navigator
+      screenOptions={{ headerShown: false }}
+      testID="unauthenticated"
+    >
       <Stack.Screen name="Home" component={Auth} />
     </Stack.Navigator>
   );
