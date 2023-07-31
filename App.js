@@ -14,6 +14,7 @@ export default function App() {
         >
           <AuthenticationContextProvider>
             <Navigation />
+            <StatusBar />
           </AuthenticationContextProvider>
         </SafeAreaView>
       </SafeAreaProvider>
