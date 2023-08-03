@@ -25,16 +25,18 @@ export const Auth = () => {
         value={email}
         onChangeText={setEmail}
         returnKeyType="done"
+        testID="signup-email-input"
       />
       <Input
         label="Password"
         placeholder="Something Secure"
-        secureTextEntry
         returnKeyType="done"
         value={password}
         onChangeText={setPassword}
+        testID="signup-password-input"
       />
       <SignupButton
+        testID="submit"
         onPress={() => {
           if (isSignUp) {
             onRegister(email, password);
@@ -46,6 +48,7 @@ export const Auth = () => {
         <SignupButtonText>{isSignUp ? "Sign Up" : "Log In"}</SignupButtonText>
       </SignupButton>
       <LoginTextTouchable
+        testID="switch"
         onPress={() => {
           setIsSignUp(!isSignUp);
         }}
