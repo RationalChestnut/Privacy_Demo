@@ -18,7 +18,7 @@ export const Auth = () => {
 
   return (
     <AuthContainer>
-      <Title>{isSignUp ? "Sign Up" : "Log In"}</Title>
+      <Title testID="sign-up-text">{isSignUp ? "Sign Up" : "Log In"}</Title>
       <Input
         label="Email"
         placeholder="Your Email Address"
