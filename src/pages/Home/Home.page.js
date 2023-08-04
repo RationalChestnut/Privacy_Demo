@@ -49,6 +49,7 @@ export const Home = () => {
 
   const handleLoadMore = () => {
     setPage(page + 1);
+    console.log("Getting data");
     getData();
   };
 
@@ -84,11 +85,8 @@ export const Home = () => {
   }, []);
 
   const renderItem = ({ item }) => {
-    if (!item) {
-      return <ItemText>0</ItemText>;
-    }
     return (
-      <CardContainer>
+      <CardContainer testID={`item_${item.card_token}`}>
         <ItemText>Created: {convertDateToReadable(item.created)}</ItemText>
         <ItemText>Status: {item.status}</ItemText>
         <ItemText>Amount: ${item.amount / 100}</ItemText>
@@ -118,6 +116,7 @@ export const Home = () => {
         keyExtractor={(item, index) => {
           return item.card_token + index;
         }}
+        testID="flatlist"
       />
     </HomeContainer>
   );

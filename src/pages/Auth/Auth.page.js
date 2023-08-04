@@ -26,6 +26,7 @@ export const Auth = () => {
         onChangeText={setEmail}
         returnKeyType="done"
         testID="signup-email-input"
+        autoCapitalize="none"
       />
       <Input
         label="Password"
@@ -34,6 +35,7 @@ export const Auth = () => {
         value={password}
         onChangeText={setPassword}
         testID="signup-password-input"
+        autoCapitalize="none"
       />
       <SignupButton
         testID="submit"

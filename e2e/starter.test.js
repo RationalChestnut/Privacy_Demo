@@ -22,4 +22,13 @@ describe("Example", () => {
     await element(by.id("signup-password-input")).typeText("password");
     await element(by.id("submit")).tap();
   });
+
+  it("should scroll flatlist", async () => {
+    await waitFor(element(by.id("flatlist"))).toBeVisible();
+
+    await waitFor(element(by.id("item_1822c0c9-fd91-4ce3-8ba2-8700ff801dad")))
+      .toBeVisible()
+      .whileElement(by.id("flatlist"))
+      .swipe("up", "fast", 0.8);
+  });
 });
