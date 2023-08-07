@@ -8,7 +8,7 @@ import {
   LogoutIcon,
   Title,
 } from "./Home.styles";
-import axios from "axios";
+import { getLithicData } from "../../../api/lithic.api";
 import { View, ActivityIndicator } from "react-native";
 import { AuthenticationContext } from "../../infra/auth/Authentication.context";
 export const Home = () => {
@@ -22,23 +22,11 @@ export const Home = () => {
     try {
       setIsLoading(true);
       if (page > maxPage) return;
-      const res = await axios.get(
-        "https://lithic-api-proxy--timmy_i_chen.repl.co/v1/transactions",
-        {
-          params: {
-            page: page,
-            page_size: 20,
-          },
-          headers: {
-            Authorization: "834763e1-4d25-4248-a81c-9036e14313bf",
-          },
-        }
-      );
-
+      const res = await getLithicData(page);
       if (!dataToRender) {
-        setDataToRender(res.data.data);
+        setDataToRender(res.data);
       } else {
-        setDataToRender(dataToRender.concat(res.data.data));
+        setDataToRender(dataToRender.concat(res.data));
       }
       setMaxPage(res.data.total_pages);
     } catch (error) {
