@@ -34,6 +34,7 @@ export const Home = () => {
           },
         }
       );
+
       if (!dataToRender) {
         setDataToRender(res.data.data);
       } else {
