@@ -1,5 +1,3 @@
-import axios from "axios";
-
 describe("Example", () => {
   beforeAll(async () => {
     await device.launchApp();
