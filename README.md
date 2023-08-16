@@ -7,3 +7,9 @@
 1. yarn install
 2. cd ios && pod install && cd ..
 3. npx expo run:ios
+
+## Run unit tests
+yarn test
+
+## Run E2E Detox Test
+npx detox test --configuration ios.sim.debug
