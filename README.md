@@ -12,4 +12,4 @@
 yarn test
 
 ## Run E2E Detox Test
-npx detox test --configuration ios.sim.debug
+yarn test:e2e
